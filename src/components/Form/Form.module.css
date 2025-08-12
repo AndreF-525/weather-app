@@ -37,3 +37,8 @@ select {
   cursor: pointer;
   padding: 1rem;
 }
+
+.submit:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
