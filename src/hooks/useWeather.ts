@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import axios from "axios"
 import {z} from 'zod'
 import type { SearchType } from "../types"
@@ -52,8 +52,11 @@ export default function useWeather() {
     }
   }
 
+  const hasWeatherData = useMemo(() => weather.name,[weather])
+
   return {
     weather,
+    hasWeatherData,
     fetchWeather
   }
 }
