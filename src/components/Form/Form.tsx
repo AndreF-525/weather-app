@@ -47,7 +47,8 @@ export default function Form({fetchWeather} : FormProps) {
           name="city"
           placeholder="Ciudad"
           value={search.city}
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </div>
 
       <div className={styles.field}>
