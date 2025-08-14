@@ -19,3 +19,11 @@
     margin-top: 5rem;
   }
 }
+
+@media (max-width: 760px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
