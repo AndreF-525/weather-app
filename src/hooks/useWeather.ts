@@ -15,17 +15,18 @@ const Weather = z.object({ //Esto no es un type, es un schema
 
 export type Weather = z.infer<typeof Weather>
 
-export default function useWeather() {
-
-  const [weather, setWeather] = useState<Weather>({
-    name: '',
+const initialState = {
+  name: '',
     main: {
       temp: 0,
       temp_max: 0,
       temp_min: 0
     }
-  })
+}
 
+export default function useWeather() {
+
+  const [weather, setWeather] = useState<Weather>(initialState)
   const [loading, setLoading] = useState(false)
 
   const fetchWeather = async (search: SearchType) => {
@@ -33,6 +34,7 @@ export default function useWeather() {
     const appId = import.meta.env.VITE_API_KEY
 
     setLoading(true)
+    setWeather(initialState)
 
     try {
       const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`
